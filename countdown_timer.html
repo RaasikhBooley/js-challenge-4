@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Countdown Timer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script> -->
+</head>
+<body>
+    <!-- html -->
+    <div id="timer">
+
+    </div>
+
+    <!-- javascript -->
+    <script>
+        // birtday date and time
+        var birthday = new Date("Jan 30, 2020").getTime("00:00:00");
+
+        // update live countdown every 1 second
+        // function starts here
+        var liveUpdate = setInterval(function() {
+
+        // todays date and time
+        var today = new Date().getTime();
+        
+        // countdown from today to my next birthday
+        var countDown = birthday - today;  
+
+        // countdown for days, hours, minutes and seconds
+        var days = Math.floor(countDown / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((countDown % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((countDown % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((countDown % (1000 * 60)) / 1000);
+
+        // Display "timer" results
+        document.getElementById("timer").innerText = days + "days " + hours + "hrs " + minutes + "min " + seconds + "sec" + " until my birthday" + " ☺" + ".";
+
+        }, 1000);
+        // function ends here
+    </script>
+</body>
+</html>
